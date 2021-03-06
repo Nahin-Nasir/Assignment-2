@@ -59,12 +59,12 @@ namespace Assignemnt_2
             int accountnumber = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < MyBank.Length; i++)
             {
-                ////if (MyBank[i] != MyBank[accountnumber])
+                if (MyBank[i] != MyBank[accountnumber])
 
-                //{
-                //    Console.WriteLine("Account does not exist");
-                //    break;
-                //}
+                {
+                    Console.WriteLine("Account does not exist");
+                    break;
+                }
 
                 if (MyBank[i] == MyBank[accountnumber])
                 {
@@ -88,7 +88,7 @@ namespace Assignemnt_2
                     //    Console.WriteLine("Enter amount and revceiver id");
                     //    amount = Convert.ToInt32(Console.ReadLine());
                     //    receiver = Convert.ToInt32(Console.ReadLine());
-                    //    MyBank[accountnumber].Transfer(amount, receiver);
+                    //    MyBank[accountnumber].Transfer(amount,receiver);
                     //}
 
                     else

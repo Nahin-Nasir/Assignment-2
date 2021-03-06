@@ -13,20 +13,27 @@ namespace Assignemnt_2
             Bank ourBank = new Bank("Developer's Bank", 100);
             bool repeat1 = true;
             Console.WriteLine("Welcome To Our Banking System");
+            
 
             while (repeat1)
             {
                 Console.WriteLine("Open an account");
                 Console.WriteLine("Perform transection on an account");
                 Console.WriteLine("Exit the application");
+
+                Console.WriteLine("Enter your choice: ");
                 string value1 = Convert.ToString(Console.ReadLine());
+                
 
                 switch (value1)
+
                 {
                     case "open":
                         Console.WriteLine("Open Saving Account..");
                         Console.WriteLine("Open Checking Account");
                         Console.WriteLine("Exit the application");
+
+                        Console.WriteLine("Enter your choice: ");
                         string value2 = Convert.ToString(Console.ReadLine());
                         switch (value2)
                         {
@@ -116,12 +123,101 @@ namespace Assignemnt_2
 
                         }
 
-                        break;
+                       break;
+
                     case "account":
 
-                        break;
-                }
+                        Console.WriteLine("Make a Deposit");
+                        Console.WriteLine("Make a Withdrawal");
+                        Console.WriteLine("Make a transfer"); 
+                        Console.WriteLine("Show the number of transaction");
+                        Console.WriteLine("Exit the application");
+                        Console.WriteLine("Enter your choice: ");
 
+
+                        string valueAcc = Convert.ToString(Console.ReadLine());
+                        switch (valueAcc)
+                        {
+                            case "deposit":
+                                Console.WriteLine("Enter Account Number:");
+                                int accountDepo = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Enter the amount of deposit:");
+                                double balanceDepo = Convert.ToDouble(Console.ReadLine());
+                                for (int i = 0; i < ourBank.MyBank.Length; i++)
+                                {
+                                    if (ourBank.MyBank[i].AccountNumber == accountDepo)
+                                    {
+                                        ourBank.MyBank[i].Deposit(balanceDepo);
+                                        ourBank.MyBank[i].Numberoftransection++;
+                                        break;
+                                    }
+                                    else if (ourBank.MyBank[i].AccountNumber != accountDepo)
+                                    {
+                                        Console.WriteLine("Account number invalid");
+                                        break;
+
+                                    }
+
+                                }
+                                break;
+                            case "withdraw":
+                                Console.WriteLine("Enter the Account Number:");
+                                int accountWit = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Enter the amount of withdraw:");
+                                double balanceWit = Convert.ToDouble(Console.ReadLine());
+                                for (int i = 0; i < ourBank.MyBank.Length; i++)
+                                {
+                                    if (ourBank.MyBank[i].AccountNumber == accountWit)
+                                    {
+                                        ourBank.MyBank[i].Withdraw(accountWit);
+                                        ourBank.MyBank[i].Numberoftransection++;
+                                        break;
+                                    }
+                                    else if (ourBank.MyBank[i].AccountNumber != accountWit)
+                                    {
+                                        Console.WriteLine("Account number invalid");
+                                        break;
+                                    }
+
+                                    break;
+                                }
+                                break;
+                            case "transfer":
+
+                                break;
+
+                            case "show":
+                                Console.WriteLine("Enter the Account Number:");
+                                int accountshow = Convert.ToInt32(Console.ReadLine());
+                                for (int i = 0; i < ourBank.MyBank.Length; i++)
+                                {
+                                    if (ourBank.MyBank[i].AccountNumber == accountshow)
+                                    {
+                                        Console.WriteLine("Number of trasactions:" + ourBank.MyBank[i].Numberoftransection);
+                                        Console.WriteLine("Balance:" + ourBank.MyBank[i].Balance);
+                                        break;
+                                    }
+                                    else if (ourBank.MyBank[i].AccountNumber != accountshow)
+                                    {
+                                        Console.WriteLine("Account number invalid");
+                                        break;
+
+                                    }
+                                    break;
+                                }
+                                break;
+
+                            case "quit":
+                                Console.WriteLine("..Exit..");
+
+                                break;
+
+                        }
+                        break;
+                        //ourBank.PrintAccountDetailes();
+
+
+                }
             }
         }
     }

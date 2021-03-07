@@ -10,22 +10,22 @@ namespace Assignemnt_2
     {
         static void Main(string[] args)
         {
-            Bank ourBank = new Bank("Developer's Bank", 100);
-            bool repeat1 = true;
-            Console.WriteLine("Welcome To Our Banking System");
+            Bank ourBank = new Bank("**Developer's Bank**", 100);
+            bool exit = true;
+            Console.WriteLine("****Welcome To Our Banking System*****");
             
 
-            while (repeat1)
+            while (exit)
             {
                 Console.WriteLine("Open an account");
                 Console.WriteLine("Perform transection on an account");
                 Console.WriteLine("Exit the application");
 
                 Console.WriteLine("Enter your choice: ");
-                string value1 = Convert.ToString(Console.ReadLine());
+                string choice1 = Convert.ToString(Console.ReadLine());
                 
 
-                switch (value1)
+                switch (choice1)
 
                 {
                     case "open":
@@ -34,8 +34,8 @@ namespace Assignemnt_2
                         Console.WriteLine("Exit the application");
 
                         Console.WriteLine("Enter your choice: ");
-                        string value2 = Convert.ToString(Console.ReadLine());
-                        switch (value2)
+                        string choice2 = Convert.ToString(Console.ReadLine());
+                        switch (choice2)
                         {
                             case "saving":
                                 Console.WriteLine("Enter Account Name");
@@ -114,9 +114,10 @@ namespace Assignemnt_2
                                 Console.WriteLine("Checking Account Created Successfully");
 
                                 continue;
-                            case "quit":
-                                Console.WriteLine("..Exit..");
 
+                            case "quit":
+                                Environment.Exit(0);
+                                
 
 
                                 break;
@@ -140,18 +141,18 @@ namespace Assignemnt_2
                         {
                             case "deposit":
                                 Console.WriteLine("Enter Account Number:");
-                                int accountDepo = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine("Enter the amount of deposit:");
-                                double balanceDepo = Convert.ToDouble(Console.ReadLine());
+                                int accountDeposit = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Enter the amount of deposit?:");
+                                double balanceDeposit = Convert.ToDouble(Console.ReadLine());
                                 for (int i = 0; i < ourBank.MyBank.Length; i++)
                                 {
-                                    if (ourBank.MyBank[i].AccountNumber == accountDepo)
+                                    if (ourBank.MyBank[i].AccountNumber == accountDeposit)
                                     {
-                                        ourBank.MyBank[i].Deposit(balanceDepo);
+                                        ourBank.MyBank[i].Deposit(balanceDeposit);
                                         ourBank.MyBank[i].Numberoftransection++;
                                         break;
                                     }
-                                    else if (ourBank.MyBank[i].AccountNumber != accountDepo)
+                                    else if (ourBank.MyBank[i].AccountNumber != accountDeposit)
                                     {
                                         Console.WriteLine("Account number invalid");
                                         break;
@@ -160,22 +161,24 @@ namespace Assignemnt_2
 
                                 }
                                 break;
+
+
                             case "withdraw":
                                 Console.WriteLine("Enter the Account Number:");
-                                int accountWit = Convert.ToInt32(Console.ReadLine());
+                                int accountWithdraw = Convert.ToInt32(Console.ReadLine());
                                 Console.WriteLine("Enter the amount of withdraw:");
                                 double balanceWit = Convert.ToDouble(Console.ReadLine());
                                 for (int i = 0; i < ourBank.MyBank.Length; i++)
                                 {
-                                    if (ourBank.MyBank[i].AccountNumber == accountWit)
+                                    if (ourBank.MyBank[i].AccountNumber == accountWithdraw)
                                     {
-                                        ourBank.MyBank[i].Withdraw(accountWit);
+                                        ourBank.MyBank[i].Withdraw(accountWithdraw);
                                         ourBank.MyBank[i].Numberoftransection++;
                                         break;
                                     }
-                                    else if (ourBank.MyBank[i].AccountNumber != accountWit)
+                                    else if (ourBank.MyBank[i].AccountNumber != accountWithdraw)
                                     {
-                                        Console.WriteLine("Account number invalid");
+                                        Console.WriteLine("Account number is invalid");
                                         break;
                                     }
 
@@ -207,12 +210,21 @@ namespace Assignemnt_2
                                 }
                                 break;
 
-                            case "quit":
-                                Console.WriteLine("..Exit..");
+                            //case "quit":
+                            //    exit = false;
+                            //   System.Environment.Exit(0);
+                               
 
-                                break;
+                            //    break;
 
                         }
+                        break;
+
+                        case "quit":
+                        exit = false;
+                        System.Environment.Exit(0);
+
+
                         break;
                         //ourBank.PrintAccountDetailes();
 

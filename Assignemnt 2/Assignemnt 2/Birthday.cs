@@ -17,7 +17,6 @@ namespace Assignemnt_2
             this.month = month;
             this.year = year;
         }
-
         public int Day
         {
             set { this.day = value; }
@@ -35,13 +34,21 @@ namespace Assignemnt_2
             get { return this.year; }
         }
         public string GetBirthday()
-        {
-            return this.day + "," + this.month + "," + this.year;
 
+        {
+       
+
+            {
+                return this.day + "," + this.month + "," + this.year;
+
+            }
+
+
+            
         }
+
     }
 }
-
 
 
 
